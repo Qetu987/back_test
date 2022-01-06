@@ -1,11 +1,13 @@
 from mysql.connector import connect, Error
+from settings import connect_data
 
+con = connect_data()
 
 try:
     with connect(
-        host="localhost",
-        user="root",
-        password="Gfhf_1_ljrc",
+        host=con['host'],
+        user=con['user'],
+        password=con['password'],
     ) as connection:
         show_db_query = "SHOW DATABASES"
         with connection.cursor() as cursor:
